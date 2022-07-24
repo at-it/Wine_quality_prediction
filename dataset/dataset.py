@@ -25,9 +25,9 @@ def initialize_dataset():
 def file_exists(filename, directory):
     os.path.exists(directory + '\\' + filename)
 
-def split_dataset_for_wine_quality_prediction(df):
-    X = df.drop(['quality'],axis=1)
-    y = df['quality']
-    X_train, y_train, X_test, y_test = train_test_split(X, y, test_size=0.2, random_state=1)
+def split_dataset_for_regression_prediction(df, column, test_size):
+    X = df.drop([column],axis=1)
+    y = df[column]
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=test_size, random_state=1)
     return X, y, X_train, y_train, X_test, y_test
  
